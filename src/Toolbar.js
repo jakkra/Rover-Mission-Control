@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Col, Row, Button, FormControl, } from 'react-bootstrap';
+import { Col, Row, Button, FormControl, Panel} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faStop, faSpinner, faGamepad } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,12 +16,13 @@ const styles = {
     background: '#424242',
     color: '#777E87',
     boxShadow: '0px 0px 5px 0px rgba(25, 25, 25, 0.75)',
-    textAlign: 'left'
+    textAlign: 'left',
+    margin: 0
   },
   toolbarColumn: {
     borderColor: 'yellow',
     borderWidth: 5,
-    borderRadius: 2
+    borderRadius: 2,
   },
   toolbarRow: {
     paddingTop: 3,
@@ -107,7 +108,7 @@ export default class Toolbar extends React.Component {
   render() {
 
     return (
-      <div style={{...styles.container}}>
+      <Panel style={{...styles.container}}>
         <Col mdHidden styles={styles.toolbarColumn} md={12} >
           <Row xs={12}>
             <Col xs={2}>
@@ -132,7 +133,7 @@ export default class Toolbar extends React.Component {
             </Col>
           </Row>
         </Col>
-      </div>
+      </Panel>
     );
   }
 }

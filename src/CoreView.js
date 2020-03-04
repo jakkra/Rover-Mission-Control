@@ -7,10 +7,18 @@ import {
 
 import config from './config';
 import Toolbar from './Toolbar';
+import ImageCard from './ImageCard';
 
 const lineColors = ['#8884d8', '#82ca9d', '#CCCC00'];
 
 const ReactGridLayout = WidthProvider(RGL);
+
+const styles = {
+  gridCard: {
+    backgroundColor: '#292929',
+    borderRadius: 10
+  }
+}
 
 export default class CoreView extends Component {
   constructor() {
@@ -30,7 +38,7 @@ export default class CoreView extends Component {
   }
 
   componentDidMount() {
-
+    
   }
 
   componentWillUnmount() {
@@ -128,25 +136,23 @@ export default class CoreView extends Component {
 
   renderGraph(gridKey, title, dataKeys) {
     return (
-      <div key={gridKey} >
+      <div key={gridKey} style={ styles.gridCard }>
         <ResponsiveContainer>
           <LineChart 
             data={this.state.data}
-            margin={{
-              top: 0, right: 0, left: 0, bottom: 0,
-            }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis tick={false} >
               <Label value={title} offset={0} style={{fill: 'green', fontSize: '1.4em'}} position="insideLeft" />
             </XAxis>
-            <YAxis />
+            <YAxis axisLine={false} tickLine={false} />
             <Tooltip />
             {dataKeys.map((dataKey, i) => {
               return <Line key={dataKey} type="monotone" dataKey={dataKey} stroke={lineColors[i % lineColors.length]} fill={lineColors[i % lineColors.length]} />
             })}
           </LineChart >
         </ResponsiveContainer>
+
       </div>
     );
   }
@@ -157,7 +163,8 @@ export default class CoreView extends Component {
       {i: 'g1', x: 8, y: 0, w: 4, h: 2},
       {i: 'g2', x: 0, y: 4, w: 4, h: 2},
       {i: 'g3', x: 4, y: 8, w: 4, h: 2},
-      {i: 'g4', x: 8, y: 8, w: 4, h: 2},
+      {i: 'g4', x: 8, y: 8, w: 2, h: 2},
+      {i: 'g5', x: 10, y: 8, w: 2, h: 2},
     ];
   }
 
@@ -171,10 +178,13 @@ export default class CoreView extends Component {
           {...this.props}
         >
           {this.renderGraph('g0', 'Gyro', ['gyroX', 'gyroY', 'gyroZ'])}
-          {this.renderGraph('g1', 'Acc', ['accX', 'accY', 'accZ'])}
-          {this.renderGraph('g2', 'Temperature', ['temp'])}
-          {this.renderGraph('g3', 'GyroAngle', ['gyroAngleX', 'gyroAngleY', 'gyroAngleZ'])}
-          {this.renderGraph('g4', 'Angle', ['angleX', 'angleY', 'angleZ'])}
+          <div key={'g1'} style={ styles.gridCard }>
+            <ImageCard isConnected={this.state.wsOpen} />
+          </div>
+          {this.renderGraph('g2', 'Acc', ['accX', 'accY', 'accZ'])}
+          {this.renderGraph('g3', 'Angle', ['angleX', 'angleY', 'angleZ'])}
+          {this.renderGraph('g4', 'GyroAngle', ['gyroAngleX', 'gyroAngleY', 'gyroAngleZ'])}
+          {this.renderGraph('g5', 'Temperature', ['temp'])}
         </ReactGridLayout>
           <Row xs={2}>
             <Toolbar
