@@ -52,11 +52,17 @@ export default class StatusCard extends React.Component {
   }
 
   render() {
+    const data = this.props.latestData;
     let now = moment();
     let currentTime = now.format('ll LTS');
     const ms = moment(now, "DD/MM/YYYY HH:mm:ss").diff(moment(this.state.startDateTime, "DD/MM/YYYY HH:mm:ss"));
     const d = moment.duration(ms);
     const timeSinceStart = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+    let avgCommInterval = 0;
+    if (data.length > 0) {
+      avgCommInterval = moment(data[data.length - 1].dateTime).diff(moment(data[0].dateTime)) / data.length;
+    }
+
     return (
       <Grid style={ styles.container }>
         <Row style={styles.header}>
@@ -75,12 +81,12 @@ export default class StatusCard extends React.Component {
             {timeSinceStart}
           </Col>
         </Row>
-        <Row style={styles.header}>
-          <Col md={6}>
+        <Row >
+          <Col md={6} style={styles.header}>
             {this.props.latestData.length > 0 ? 'Comms' : ''}
           </Col>
-          <Col md={6}>
-            {"N/A"}
+          <Col hidden={avgCommInterval == 0} md={6} style={styles.dateTime}>
+            { `Avg. interval ${parseInt(avgCommInterval)}`}
           </Col>
         </Row>
         <Row>
