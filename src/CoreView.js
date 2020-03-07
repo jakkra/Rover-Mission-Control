@@ -8,6 +8,7 @@ import {
 import config from './config';
 import Toolbar from './Toolbar';
 import ImageCard from './ImageCard';
+import StatusCard from './StatusCard';
 
 const lineColors = ['#8884d8', '#82ca9d', '#CCCC00'];
 
@@ -35,14 +36,6 @@ export default class CoreView extends Component {
     this.connect = this.connect.bind(this);
     this.connectDisconnectClicked = this.connectDisconnectClicked.bind(this);
     this.renderGraph = this.renderGraph.bind(this);
-  }
-
-  componentDidMount() {
-    
-  }
-
-  componentWillUnmount() {
-
   }
 
   connect(ipAddress) {
@@ -109,6 +102,7 @@ export default class CoreView extends Component {
         angleY: values[11],
         angleZ: values[12],
         dateTime: new Date(),
+        size: evt.data.byteLength
       };
 
       console.log(data);
@@ -159,7 +153,9 @@ export default class CoreView extends Component {
 
   generateLayout() {
     return  [
-      {i: 'g0', x: 0, y: 0, w: 8, h: 2},
+      {i: 'status', x: 0, y: 0, w: 4, h: 1},
+      {i: 'placeholder', x: 0, y: 1, w: 4, h: 1},
+      {i: 'g0', x: 4, y: 0, w: 4, h: 2},
       {i: 'g1', x: 8, y: 0, w: 4, h: 2},
       {i: 'g2', x: 0, y: 4, w: 4, h: 2},
       {i: 'g3', x: 4, y: 8, w: 4, h: 2},
@@ -177,6 +173,12 @@ export default class CoreView extends Component {
           onLayoutChange={this.onLayoutChange}
           {...this.props}
         >
+          <div key={'status'} style={ styles.gridCard }>
+            <StatusCard latestData={this.state.data} />
+          </div>
+          <div key={'placeholder'} style={ styles.gridCard }>
+
+          </div>
           {this.renderGraph('g0', 'Gyro', ['gyroX', 'gyroY', 'gyroZ'])}
           <div key={'g1'} style={ styles.gridCard }>
             <ImageCard isConnected={this.state.wsOpen} />

@@ -72,10 +72,7 @@ export default class Toolbar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUrlChange = this.handleUrlChange.bind(this);
   }
-
-  componentDidMount() {
-  }
-
+  
   handleChange(e) {
     this.setState({ ipAddress: e.target.value });
   }

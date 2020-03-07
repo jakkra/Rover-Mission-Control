@@ -27,11 +27,6 @@ export default class ImageCard extends React.Component {
     ipAddress: 'http://192.168.4.10:81/stream'
   };
 
-  componentDidMount() {
-
-  }
-
-
   render() {
     let imgSrc;
     if (this.props.isConnected) {
@@ -42,7 +37,7 @@ export default class ImageCard extends React.Component {
     }
     return (
       <Grid style={ styles.container }>
-        <img resizeMode={'fill'} style = {styles.image} src={imgSrc} alt="" />
+        <img style = {styles.image} src={imgSrc} alt="" />
 
 
         <ButtonGroup >
