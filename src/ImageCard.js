@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, ButtonGroup, Col, Row, Grid } from 'react-bootstrap';
+import { Button, ButtonGroup, Grid } from 'react-bootstrap';
 
 const styles = {
   container: {
@@ -19,32 +19,53 @@ const styles = {
 
 export default class ImageCard extends React.Component {
   static propTypes = {
-    ipAddress: PropTypes.string,
+    cameraUrl: PropTypes.string,
     isConnected: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
-    ipAddress: 'http://192.168.4.10:81/stream'
+    streamAddress: 'http://192.168.4.10:81/stream',
+    captureAddress: 'http://192.168.4.10/capture'
   };
 
-  render() {
-    let imgSrc;
-    if (this.props.isConnected) {
-      imgSrc = this.props.ipAddress;
-      console.log('connected', this.props.ipAddress)
-    } else {
-      imgSrc = 'https://mars.nasa.gov/system/news_items/main_images/8442_PIA23240-16.jpg';
+  constructor(props) {
+    super(props);
+    this.startStream = this.startStream.bind(this);
+    this.stopStream = this.stopStream.bind(this);
+    this.captureStill = this.captureStill.bind(this);
+
+    this.state = {
+      imgSrc: ''
     }
+  }
+
+  startStream() {
+    this.setState({
+      imgSrc: this.props.streamAddress
+    });
+  }
+
+  stopStream() {
+    this.setState({
+      imgSrc: ''
+    });
+  }
+
+  captureStill() {
+    this.setState({
+      imgSrc: this.props.captureAddress + '?' + new Date().getTime(),
+    });
+  }
+
+  render() {
     return (
       <Grid style={ styles.container }>
-        <img style = {styles.image} src={imgSrc} alt="" />
-
-
         <ButtonGroup >
-          <Button style={styles.button} bsStyle="success">Start stream</Button>
-          <Button style={styles.button} bsStyle="primary">Take screenshot</Button>
-          <Button style={styles.button} bsStyle="danger">Something</Button>
+          <Button style={styles.button} bsStyle="success" onClick={this.startStream}>Start stream</Button>
+          <Button style={styles.button} bsStyle="danger" onClick={this.stopStream}>Stop stream</Button>
+          <Button style={styles.button} bsStyle="primary" onClick={this.captureStill}>Take screenshot</Button>
         </ButtonGroup>
+        <img style = {styles.image} src={this.state.imgSrc} alt="" />
       </Grid>
     );
   }

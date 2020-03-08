@@ -85,7 +85,7 @@ export default class StatusCard extends React.Component {
           <Col md={6} style={styles.header}>
             {this.props.latestData.length > 0 ? 'Comms' : ''}
           </Col>
-          <Col hidden={avgCommInterval == 0} md={6} style={styles.dateTime}>
+          <Col hidden={avgCommInterval === 0} md={6} style={styles.dateTime}>
             { `Avg. interval ${parseInt(avgCommInterval)}`}
           </Col>
         </Row>
