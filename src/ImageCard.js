@@ -19,13 +19,16 @@ const styles = {
 
 export default class ImageCard extends React.Component {
   static propTypes = {
-    cameraUrl: PropTypes.string,
+    streamAddress: PropTypes.string,
+    captureAddress: PropTypes.string,
+    setQualityAddress: PropTypes.string,
     isConnected: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
     streamAddress: 'http://192.168.4.10:81/stream',
-    captureAddress: 'http://192.168.4.10/capture'
+    captureAddress: 'http://192.168.4.10/capture',
+    setQualityAddress: 'http://192.168.4.10/control?var=quality&val=30'
   };
 
   constructor(props) {
@@ -36,6 +39,15 @@ export default class ImageCard extends React.Component {
 
     this.state = {
       imgSrc: ''
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.isConnected && !prevProps.isConnected) {
+      if (this.props.setQualityAddress) {
+        fetch(this.props.setQualityAddress)
+        .catch((err) => console.log('Failed setting quality'));
+      }
     }
   }
 
