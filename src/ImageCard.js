@@ -6,14 +6,15 @@ import { Button, ButtonGroup, Grid } from 'react-bootstrap';
 const styles = {
   container: {
     textAlign: 'center',
-    maxWidth: '100%',
-    maxHeight: '100%'
+    width: '100%',
+    height: '100%',
   },
   image: {
-    width: '95%',
+    maxWidth: '100%',
+    height: '85%',
   },
   button: {
-
+    padding: 4,
   }
 };
 
@@ -73,9 +74,9 @@ export default class ImageCard extends React.Component {
     return (
       <Grid style={ styles.container }>
         <ButtonGroup >
-          <Button style={styles.button} bsStyle="success" onClick={this.startStream}>Start stream</Button>
-          <Button style={styles.button} bsStyle="danger" onClick={this.stopStream}>Stop stream</Button>
-          <Button style={styles.button} bsStyle="primary" onClick={this.captureStill}>Take screenshot</Button>
+          <Button style={styles.button} bsSize="small" bsStyle="success" onClick={this.startStream}>Start stream</Button>
+          <Button style={styles.button} bsSize="small" bsStyle="danger" onClick={this.stopStream}>Stop stream</Button>
+          <Button style={styles.button} bsSize="small" bsStyle="primary" onClick={this.captureStill}>Screenshot</Button>
         </ButtonGroup>
         <img style = {styles.image} src={this.state.imgSrc} alt="" />
       </Grid>

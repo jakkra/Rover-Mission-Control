@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Col, Row, Button, FormControl, Panel} from 'react-bootstrap';
+import { Col, Row, Button, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faStop, faSpinner, faGamepad } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,7 +12,6 @@ const styles = {
     left: 0,
     width: '100%',
     padding: '5px 0',
-    borderTop: '1px solid #777E87',
     background: '#424242',
     color: '#777E87',
     boxShadow: '0px 0px 5px 0px rgba(25, 25, 25, 0.75)',
@@ -31,23 +30,6 @@ const styles = {
     color: 'white',
     fontSize: '1em',
   },
-  colorPickerButton: {
-    boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
-    borderRadius: '5px',
-  },
-  popover: {
-    position: 'absolute',
-    bottom: 50,
-    right: 0,
-    zIndex: '9999',
-  },
-  cover: {
-    position: 'fixed',
-    top: '0px',
-    right: '0px',
-    bottom: '0px',
-    left: '0px',
-  },
 };
 
 export default class Toolbar extends React.Component {
@@ -59,7 +41,7 @@ export default class Toolbar extends React.Component {
   };
 
   static defaultProps = {
-    defaultIpAddress: '192.168.4.1:81'
+    defaultIpAddress: ''
   };
 
   constructor(props) {
@@ -105,7 +87,7 @@ export default class Toolbar extends React.Component {
   render() {
 
     return (
-      <Panel style={{...styles.container}}>
+      <div style={{...styles.container}}>
         <Col mdHidden styles={styles.toolbarColumn} md={12} >
           <Row xs={12}>
             <Col xs={2}>
@@ -130,7 +112,7 @@ export default class Toolbar extends React.Component {
             </Col>
           </Row>
         </Col>
-      </Panel>
+      </div>
     );
   }
 }

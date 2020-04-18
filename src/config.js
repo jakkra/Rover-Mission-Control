@@ -1,5 +1,5 @@
 const config = {
-  defaultRoverIp: '192.168.1.38:81'
+  defaultRoverIp: '192.168.4.1:80/ws'
 };
 
-module.exports = config;
+module.exports = config; 

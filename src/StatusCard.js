@@ -8,10 +8,11 @@ const styles = {
     textAlign: 'left',
     maxWidth: '100%',
     maxHeight: '100%',
+    overflow: 'hidden'
   },
   header: {
     color: 'white',
-    fontSize: '1.2em',
+    fontSize: '0.9em',
     fontWeight: 'bold',
   },
   dateTime: {

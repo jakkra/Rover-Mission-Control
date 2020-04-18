@@ -59,6 +59,7 @@ export default class CoreView extends Component {
         wsConnecting: false,
         wsClosing: false,
       });
+      this.ws.send("CONNECT");
     };
 
     this.ws.onclose = () => {
@@ -82,7 +83,8 @@ export default class CoreView extends Component {
     this.ws.onmessage = (evt) => {
       // We expect 13 float values.
       if (evt.data.byteLength !== (13 * 4)) {
-        console.log('Unexpected WS Bin length', evt.data.byteLength);
+        console.log(evt);
+        //console.log('Unexpected WS Bin length', evt.data.byteLength);
         return;
       };
       
@@ -154,13 +156,12 @@ export default class CoreView extends Component {
   generateLayout() {
     return  [
       {i: 'status', x: 0, y: 0, w: 4, h: 1},
-      {i: 'placeholder', x: 0, y: 1, w: 4, h: 1},
-      {i: 'g0', x: 4, y: 0, w: 4, h: 2},
-      {i: 'g1', x: 8, y: 0, w: 4, h: 2},
-      {i: 'g2', x: 0, y: 4, w: 4, h: 2},
-      {i: 'g3', x: 4, y: 8, w: 4, h: 2},
-      {i: 'g4', x: 8, y: 8, w: 2, h: 2},
-      {i: 'g5', x: 10, y: 8, w: 2, h: 2},
+      {i: 'g0', x: 4, y: 0, w: 4, h: 1},
+      {i: 'g1', x: 8, y: 0, w: 4, h: 1},
+      {i: 'g2', x: 0, y: 4, w: 4, h: 1},
+      {i: 'g3', x: 4, y: 8, w: 4, h: 1},
+      {i: 'g4', x: 8, y: 8, w: 2, h: 1},
+      {i: 'g5', x: 10, y: 8, w: 2, h: 1},
     ];
   }
 
@@ -176,9 +177,7 @@ export default class CoreView extends Component {
           <div key={'status'} style={ styles.gridCard }>
             <StatusCard latestData={this.state.data} />
           </div>
-          <div key={'placeholder'} style={ styles.gridCard }>
 
-          </div>
           {this.renderGraph('g0', 'Gyro', ['gyroX', 'gyroY', 'gyroZ'])}
           <div key={'g1'} style={ styles.gridCard }>
             <ImageCard isConnected={this.state.wsOpen} />
@@ -190,6 +189,7 @@ export default class CoreView extends Component {
         </ReactGridLayout>
           <Row xs={2}>
             <Toolbar
+              defaultIpAddress={this.ip}
               isConnected={this.state.wsOpen}
               isConnecting={this.state.wsConnecting}
               onConnectDisconnect={this.connectDisconnectClicked}
