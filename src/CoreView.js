@@ -38,8 +38,8 @@ export default class CoreView extends Component {
     this.renderGraph = this.renderGraph.bind(this);
   }
 
-  connect(ipAddress) {
-    this.ws = new WebSocket(`ws://${ipAddress}`);
+  connect(wsUrl) {
+    this.ws = new WebSocket(wsUrl);
     this.ws.binaryType = 'arraybuffer';
 
     if (this.state.wsClosing || this.state.wsOpen) {
