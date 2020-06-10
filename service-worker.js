@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Rover-Mission-Control/precache-manifest.25271f8b190088c035deafb72dd1cdf6.js"
+  "/Rover-Mission-Control/precache-manifest.b61a26951fb856e52bbd98c3d37df17e.js"
 );
 
 self.addEventListener('message', (event) => {

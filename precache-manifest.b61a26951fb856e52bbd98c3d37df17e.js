@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d2bc725e30e1723ae4a5a98b389d2695",
+    "revision": "63cf5be28130238603638f22be72dc09",
     "url": "/Rover-Mission-Control/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Rover-Mission-Control/static/css/2.a183f535.chunk.css"
   },
   {
-    "revision": "790f29f7a0a1b8f587e4",
+    "revision": "d3d4204485b9b832325b",
     "url": "/Rover-Mission-Control/static/css/main.16cc0c03.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Rover-Mission-Control/static/js/2.a231c1e0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "790f29f7a0a1b8f587e4",
-    "url": "/Rover-Mission-Control/static/js/main.35a12f71.chunk.js"
+    "revision": "d3d4204485b9b832325b",
+    "url": "/Rover-Mission-Control/static/js/main.46e9cea9.chunk.js"
   },
   {
     "revision": "d21e5abf79e00200d83e",
