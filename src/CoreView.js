@@ -136,6 +136,7 @@ export default class CoreView extends Component {
         <ResponsiveContainer>
           <LineChart 
             data={this.state.data}
+            dot={false}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis tick={false} >
@@ -144,7 +145,7 @@ export default class CoreView extends Component {
             <YAxis axisLine={false} tickLine={false} />
             <Tooltip />
             {dataKeys.map((dataKey, i) => {
-              return <Line key={dataKey} type="monotone" dataKey={dataKey} stroke={lineColors[i % lineColors.length]} fill={lineColors[i % lineColors.length]} />
+              return <Line dot={false} isAnimationActive={false} key={dataKey} type="monotone" dataKey={dataKey} stroke={lineColors[i % lineColors.length]} fill={lineColors[i % lineColors.length]} />
             })}
           </LineChart >
         </ResponsiveContainer>
@@ -158,10 +159,10 @@ export default class CoreView extends Component {
       {i: 'status', x: 0, y: 0, w: 4, h: 1},
       {i: 'g0', x: 4, y: 0, w: 4, h: 1},
       {i: 'g1', x: 8, y: 0, w: 4, h: 1},
-      {i: 'g2', x: 0, y: 4, w: 4, h: 1},
-      {i: 'g3', x: 4, y: 8, w: 4, h: 1},
-      {i: 'g4', x: 8, y: 8, w: 2, h: 1},
-      {i: 'g5', x: 10, y: 8, w: 2, h: 1},
+      {i: 'g2', x: 0, y: 4, w: 3, h: 1},
+      {i: 'g3', x: 3, y: 8, w: 3, h: 1},
+      {i: 'g4', x: 6, y: 8, w: 3, h: 1},
+      {i: 'g5', x: 9, y: 8, w: 3, h: 1},
     ];
   }
 
