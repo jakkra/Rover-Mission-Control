@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Rover-Mission-Control/static/css/main.16cc0c03.chunk.css",
-    "main.js": "/Rover-Mission-Control/static/js/main.46e9cea9.chunk.js",
-    "main.js.map": "/Rover-Mission-Control/static/js/main.46e9cea9.chunk.js.map",
-    "runtime-main.js": "/Rover-Mission-Control/static/js/runtime-main.3286153b.js",
-    "runtime-main.js.map": "/Rover-Mission-Control/static/js/runtime-main.3286153b.js.map",
-    "static/css/2.a183f535.chunk.css": "/Rover-Mission-Control/static/css/2.a183f535.chunk.css",
-    "static/js/2.a231c1e0.chunk.js": "/Rover-Mission-Control/static/js/2.a231c1e0.chunk.js",
-    "static/js/2.a231c1e0.chunk.js.map": "/Rover-Mission-Control/static/js/2.a231c1e0.chunk.js.map",
-    "index.html": "/Rover-Mission-Control/index.html",
-    "precache-manifest.b61a26951fb856e52bbd98c3d37df17e.js": "/Rover-Mission-Control/precache-manifest.b61a26951fb856e52bbd98c3d37df17e.js",
-    "service-worker.js": "/Rover-Mission-Control/service-worker.js",
-    "static/css/2.a183f535.chunk.css.map": "/Rover-Mission-Control/static/css/2.a183f535.chunk.css.map",
-    "static/css/main.16cc0c03.chunk.css.map": "/Rover-Mission-Control/static/css/main.16cc0c03.chunk.css.map",
-    "static/js/2.a231c1e0.chunk.js.LICENSE.txt": "/Rover-Mission-Control/static/js/2.a231c1e0.chunk.js.LICENSE.txt",
-    "static/media/font-awesome.css": "/Rover-Mission-Control/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/bootstrap.min.css": "/Rover-Mission-Control/static/media/glyphicons-halflings-regular.fa277232.woff"
+    "main.css": "./static/css/main.16cc0c03.chunk.css",
+    "main.js": "./static/js/main.60b46bcc.chunk.js",
+    "main.js.map": "./static/js/main.60b46bcc.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.69912c98.js",
+    "runtime-main.js.map": "./static/js/runtime-main.69912c98.js.map",
+    "static/css/2.c40845f1.chunk.css": "./static/css/2.c40845f1.chunk.css",
+    "static/js/2.4671a77e.chunk.js": "./static/js/2.4671a77e.chunk.js",
+    "static/js/2.4671a77e.chunk.js.map": "./static/js/2.4671a77e.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.c4b64fe2679c6674c90fbca410efbc7a.js": "./precache-manifest.c4b64fe2679c6674c90fbca410efbc7a.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.c40845f1.chunk.css.map": "./static/css/2.c40845f1.chunk.css.map",
+    "static/css/main.16cc0c03.chunk.css.map": "./static/css/main.16cc0c03.chunk.css.map",
+    "static/js/2.4671a77e.chunk.js.LICENSE.txt": "./static/js/2.4671a77e.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.css": "./static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/bootstrap.min.css": "./static/media/glyphicons-halflings-regular.fa277232.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.3286153b.js",
-    "static/css/2.a183f535.chunk.css",
-    "static/js/2.a231c1e0.chunk.js",
+    "static/js/runtime-main.69912c98.js",
+    "static/css/2.c40845f1.chunk.css",
+    "static/js/2.4671a77e.chunk.js",
     "static/css/main.16cc0c03.chunk.css",
-    "static/js/main.46e9cea9.chunk.js"
+    "static/js/main.60b46bcc.chunk.js"
   ]
 }
