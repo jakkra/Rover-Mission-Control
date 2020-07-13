@@ -3,6 +3,10 @@ Connects to the Rover Controller [https://github.com/jakkra/RoverController](htt
 
 Telematics comes from the Rover itself [https://github.com/jakkra/Mars-Rover](https://github.com/jakkra/Mars-Rover).
  
+## Installing
+Make sure you got latest node, tested on `v12.18.2`
+
+`npm install`
 ## Running
 `npm start` to run
 
